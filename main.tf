@@ -5,24 +5,19 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "windows-2019" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["Windows_Server-2019-English-Full-Base*"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
+  owners = ["amazon"] # Canonical
 }
 
-resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
+resource "aws_instance" "octopus-server" {
+  ami           = data.aws_ami.windows-2019.id
   instance_type = var.instance_type
 
   tags = {
