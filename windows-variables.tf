@@ -13,7 +13,7 @@ variable "windows_associate_public_ip_address" {
 variable "windows_root_volume_size" {
   type        = number
   description = "Volumen size of root volumen of Windows Server"
-  default     = "30"
+  default     = "50"
 }
 
 variable "windows_data_volume_size" {
