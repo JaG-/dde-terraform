@@ -50,13 +50,15 @@ EOF
 }
 
 # Create Elastic IP for the EC2 instance
-resource "aws_eip" "windows-eip" {
-  vpc  = true
-  tags = {
-    Name = "octopus-server-eip"
-  }
-}# Associate Elastic IP to Windows Server
-resource "aws_eip_association" "windows-eip-association" {
-  instance_id   = aws_instance.octopus-server.id
-  allocation_id = aws_eip.windows-eip.id
-}
+#resource "aws_eip" "windows-eip" {
+#  vpc  = true
+#  tags = {
+#    Name = "octopus-server-eip"
+#  }
+#}
+
+# Associate Elastic IP to Windows Server
+#resource "aws_eip_association" "windows-eip-association" {
+#  instance_id   = aws_instance.octopus-server.id
+#  allocation_id = aws_eip.windows-eip.id
+#}
