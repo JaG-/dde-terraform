@@ -62,3 +62,7 @@ EOF
 #  instance_id   = aws_instance.octopus-server.id
 #  allocation_id = aws_eip.windows-eip.id
 #}
+
+data "aws_iam_instance_profile" "ssmagent" {
+  name = "AmazonSSMRoleForInstancesQuickSetup"
+}

@@ -25,6 +25,7 @@ resource "aws_instance" "octopus-server" {
   key_name = aws_key_pair.key_pair.key_name
   user_data = data.template_file.windows-userdata.rendered 
   associate_public_ip_address = var.windows_associate_public_ip_address
+  iam_instance_profile = data.aws_iam_instance_profile.ssmagent.name
   
   # root disk
   root_block_device {
